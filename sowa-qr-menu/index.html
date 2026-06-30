@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SOWA QR menü">
+    <meta name="theme-color" content="#101310">
+    <title>SOWA QR Menü</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="hero">
+        <div class="logo-badge" aria-label="SOWA logosu">
+          <img class="logo" src="assets/logo.jpeg" alt="" width="1080" height="707">
+        </div>
+        <div class="hero-copy">
+          <p class="tagline">Kahve, tatlı ve sakin bir mola</p>
+          <span class="hero-dash" aria-hidden="true"></span>
+        </div>
+      </header>
+
+      <section class="menu-board" aria-labelledby="menu-title">
+        <div class="section-heading">
+          <span class="chalk-line"></span>
+          <h1 id="menu-title">Menü</h1>
+          <span class="chalk-line"></span>
+        </div>
+
+        <div id="menu" class="menu-grid" aria-live="polite">
+          <p class="loading">Menü yükleniyor...</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        SOWA — Kahve, tatlı ve sakin bir mola
+      </footer>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
