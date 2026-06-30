@@ -1,45 +1,395 @@
 <!doctype html>
 <html lang="tr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="SOWA QR menü">
-    <meta name="theme-color" content="#101310">
-    <title>SOWA QR Menü</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>SOWA · Menü</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        background: #dededa;
+      }
+      body {
+        font-family: "Jost", sans-serif;
+        color: #1a1a1a;
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+      }
+      .sheet {
+        width: 100%;
+        max-width: 480px;
+        background: #fff;
+        min-height: 100vh;
+        padding: 48px 32px 56px;
+      }
+      /* Header */
+      .head {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .logo {
+        width: 118px;
+        height: 118px;
+        border-radius: 50%;
+        border: 1.5px solid #1a1a1a;
+        background-image: url("sowa.jpeg");
+        background-repeat: no-repeat;
+        background-size: 700px auto;
+        background-position: -170px -173px;
+        background-color: #fff;
+        background-blend-mode: multiply;
+      }
+      .brand {
+        font-weight: 500;
+        font-size: 28px;
+        letter-spacing: 0.22em;
+        margin-top: 12px;
+      }
+      .tag {
+        font-weight: 300;
+        font-size: 11px;
+        letter-spacing: 0.46em;
+        text-transform: uppercase;
+        margin-top: 4px;
+      }
+      /* Category */
+      .cat {
+        margin-top: 38px;
+      }
+      .cat-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        border-bottom: 1px solid #1a1a1a;
+        padding-bottom: 10px;
+      }
+      .cat-tr {
+        font-weight: 400;
+        font-size: 17px;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+      }
+      .cat-en {
+        font-weight: 300;
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        color: #9a9a9a;
+        text-transform: uppercase;
+      }
+      /* Item */
+      .item {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        padding: 13px 0;
+        border-bottom: 1px solid #efefef;
+      }
+      .item .names {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+      }
+      .item .tr {
+        font-weight: 400;
+        font-size: 16px;
+        letter-spacing: 0.02em;
+      }
+      .item .en {
+        font-weight: 300;
+        font-size: 12px;
+        color: #a8a8a8;
+        letter-spacing: 0.04em;
+      }
+      .item .sp {
+        flex: 1;
+      }
+      .item .price {
+        font-weight: 400;
+        font-size: 16px;
+        white-space: nowrap;
+      }
+      /* Footer */
+      .foot {
+        margin-top: 40px;
+        padding-top: 24px;
+        border-top: 1px solid #1a1a1a;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+      }
+      .ig {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        text-decoration: none;
+        color: #1a1a1a;
+      }
+      .ig span {
+        font-weight: 400;
+        font-size: 13px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      .info {
+        text-align: center;
+        font-weight: 300;
+        color: #6e6e6e;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        line-height: 2.1;
+        text-transform: uppercase;
+      }
+    </style>
   </head>
   <body>
-    <main class="page-shell">
-      <header class="hero">
-        <div class="logo-badge" aria-label="SOWA logosu">
-          <img class="logo" src="assets/logo.jpeg" alt="" width="1080" height="707">
-        </div>
-        <div class="hero-copy">
-          <p class="tagline">Kahve, tatlı ve sakin bir mola</p>
-          <span class="hero-dash" aria-hidden="true"></span>
-        </div>
-      </header>
+    <main class="sheet">
+      <div class="head">
+        <div class="logo"></div>
+        <div class="brand">SOWA</div>
+        <div class="tag">Coffee &amp; Pause</div>
+      </div>
 
-      <section class="menu-board" aria-labelledby="menu-title">
-        <div class="section-heading">
-          <span class="chalk-line"></span>
-          <h1 id="menu-title">Menü</h1>
-          <span class="chalk-line"></span>
+      <!-- KAHVELER -->
+      <section class="cat">
+        <div class="cat-head">
+          <span class="cat-tr">KAHVELER</span><span class="cat-en">Coffee</span>
         </div>
-
-        <div id="menu" class="menu-grid" aria-live="polite">
-          <p class="loading">Menü yükleniyor...</p>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Espresso</span><span class="en">Espresso</span>
+          </div>
+          <span class="sp"></span><span class="price">₺70</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Double Espresso</span
+            ><span class="en">Double Espresso</span>
+          </div>
+          <span class="sp"></span><span class="price">₺100</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Americano</span><span class="en">Americano</span>
+          </div>
+          <span class="sp"></span><span class="price">₺120</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Filtre Kahve</span
+            ><span class="en">Filter Coffee</span>
+          </div>
+          <span class="sp"></span><span class="price">₺120</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Cappuccino</span><span class="en">Cappuccino</span>
+          </div>
+          <span class="sp"></span><span class="price">₺140</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Latte</span><span class="en">Latte</span>
+          </div>
+          <span class="sp"></span><span class="price">₺140</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Flat White</span><span class="en">Flat White</span>
+          </div>
+          <span class="sp"></span><span class="price">₺150</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Mocha</span><span class="en">Mocha</span>
+          </div>
+          <span class="sp"></span><span class="price">₺150</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">White Mocha</span
+            ><span class="en">White Mocha</span>
+          </div>
+          <span class="sp"></span><span class="price">₺150</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Caramel Latte</span
+            ><span class="en">Caramel Latte</span>
+          </div>
+          <span class="sp"></span><span class="price">₺150</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Türk Kahvesi</span
+            ><span class="en">Turkish Coffee</span>
+          </div>
+          <span class="sp"></span><span class="price">₺60</span>
         </div>
       </section>
 
-      <footer class="footer">
-        SOWA — Kahve, tatlı ve sakin bir mola
+      <!-- ÇAYLAR -->
+      <section class="cat">
+        <div class="cat-head">
+          <span class="cat-tr">ÇAYLAR</span><span class="cat-en">Tea</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Çay</span><span class="en">Tea</span>
+          </div>
+          <span class="sp"></span><span class="price">₺30</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Bitki Çayları</span
+            ><span class="en">Herbal Teas</span>
+          </div>
+          <span class="sp"></span><span class="price"></span>
+        </div>
+      </section>
+
+      <!-- SOĞUK İÇECEKLER -->
+      <section class="cat">
+        <div class="cat-head">
+          <span class="cat-tr">SOĞUK İÇECEKLER</span
+          ><span class="cat-en">Cold Drinks</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Ev Yapımı Limonata</span
+            ><span class="en">Homemade Lemonade</span>
+          </div>
+          <span class="sp"></span><span class="price">₺120</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Ice Americano</span
+            ><span class="en">Ice Americano</span>
+          </div>
+          <span class="sp"></span><span class="price">₺130</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Ice Latte</span><span class="en">Ice Latte</span>
+          </div>
+          <span class="sp"></span><span class="price">₺150</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Ice Cappuccino</span
+            ><span class="en">Ice Cappuccino</span>
+          </div>
+          <span class="sp"></span><span class="price">₺150</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Ice Mocha</span><span class="en">Ice Mocha</span>
+          </div>
+          <span class="sp"></span><span class="price">₺160</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Ice Caramel Latte</span
+            ><span class="en">Ice Caramel Latte</span>
+          </div>
+          <span class="sp"></span><span class="price">₺160</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Frozen</span><span class="en">Frozen</span>
+          </div>
+          <span class="sp"></span><span class="price">₺160</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Soda</span><span class="en">Soda</span>
+          </div>
+          <span class="sp"></span><span class="price">₺35-50</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Su</span><span class="en">Water</span>
+          </div>
+          <span class="sp"></span><span class="price">₺15</span>
+        </div>
+      </section>
+
+      <!-- YİYECEKLER -->
+      <section class="cat">
+        <div class="cat-head">
+          <span class="cat-tr">YİYECEKLER</span><span class="cat-en">Food</span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Brownie</span><span class="en">Brownie</span>
+          </div>
+          <span class="sp"></span><span class="price"></span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Tiramisu</span><span class="en">Tiramisu</span>
+          </div>
+          <span class="sp"></span><span class="price"></span>
+        </div>
+        <div class="item">
+          <div class="names">
+            <span class="tr">Tost</span><span class="en">Toastie</span>
+          </div>
+          <span class="sp"></span><span class="price"></span>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <a
+          class="ig"
+          href="https://www.instagram.com/sowacafesoke"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#1a1a1a"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5.5"></rect>
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <circle
+              cx="17.4"
+              cy="6.6"
+              r="1.1"
+              fill="#1a1a1a"
+              stroke="none"
+            ></circle>
+          </svg>
+          <span>@sowacafesoke</span>
+        </a>
+        <div class="info">
+          <div>Her gün 08:00 – 23:00</div>
+          <div>Adres satırı burada</div>
+        </div>
       </footer>
     </main>
-
-    <script src="script.js" defer></script>
   </body>
 </html>
