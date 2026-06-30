@@ -121,7 +121,7 @@ body::after {
   object-position: 35% 50%;
   filter: grayscale(1) contrast(1.08);
   mix-blend-mode: multiply;
-  transform: scale(1.06);
+  transform: scale(1.06) translateY(-6%);
 }
 
 .hero-copy {
