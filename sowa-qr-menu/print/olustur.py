@@ -131,23 +131,24 @@ def iskelet(baslik, sayfa_css, govde):
 
 # ---------- 1) A4 tek yüz, 2 sütun ----------
 a4_2col_css = """
-  @page{size:A4;margin:12mm}
-  .page{min-height:273mm}
+  @page{size:A4;margin:15mm}
+  .page{min-height:255mm}
   .logo{width:74px;height:74px;background-size:439px auto;background-position:-107px -108px}
   .brand{font-size:23px;margin-top:8px}
   .tag{font-size:8.5px;margin-top:3px}
-  .cols{display:flex;gap:14mm;margin-top:9mm}
+  .cols{display:flex;gap:11mm;margin-top:9mm}
   .col{flex:1;min-width:0}
   .cat{margin-top:7mm}
   .col > .cat:first-child{margin-top:0}
   .cat-tr{font-size:11.5px}
   .cat-en{font-size:7.5px}
   .item{padding:5.2px 0}
+  .col-sol .item{padding:7.4px 0}
   .item .tr{font-size:10px}
   .item .en{font-size:7.4px}
   .item .var{font-size:7px;margin-top:1px}
   .item .price{font-size:10px}
-  .foot{margin-top:9mm;padding-top:9px}
+  .foot{margin-top:auto;padding-top:9px}
   .ig{font-size:9.5px}
   .info{font-size:8px;line-height:1.9;margin-top:5px}
 """
@@ -155,24 +156,24 @@ sol = bolum(*MENU[0]) + bolum(*MENU[1])
 sag = bolum(*MENU[2]) + bolum(*MENU[3])
 a4_2col = iskelet("SOWA · Menü (A4)", a4_2col_css,
     f'<div class="page">{basisim("a4")}'
-    f'<div class="cols"><div class="col">{sol}</div><div class="col">{sag}</div></div>'
+    f'<div class="cols"><div class="col col-sol">{sol}</div><div class="col">{sag}</div></div>'
     f'{altbilgi()}</div>')
 
 # ---------- 2) A5 çift taraflı ----------
 a5_css = """
-  @page{size:A5;margin:9mm}
-  .page{height:192mm;overflow:hidden}
+  @page{size:A5;margin:12mm}
+  .page{height:186mm;overflow:hidden}
   .logo{width:56px;height:56px;background-size:332px auto;background-position:-81px -82px}
   .brand{font-size:18px;margin-top:5px}
   .tag{font-size:7.2px;margin-top:2px}
-  .cat{margin-top:5.5mm}
-  .cat-tr{font-size:10px}
+  .cat{margin-top:5mm}
+  .cat-tr{font-size:9.6px}
   .cat-en{font-size:6.9px}
-  .item{padding:3.5px 0}
-  .item .tr{font-size:9.4px;line-height:1.25}
+  .item{padding:2.9px 0}
+  .item .tr{font-size:9.1px;line-height:1.25}
   .item .en{font-size:6.9px;line-height:1.2}
   .item .var{font-size:6.5px;line-height:1.2;margin-top:.5px}
-  .item .price{font-size:9.4px}
+  .item .price{font-size:9.1px}
   .foot{margin-top:5mm;padding-top:7px}
   .ig{font-size:8.4px}
   .info{font-size:6.9px;line-height:1.8;margin-top:4px}
@@ -186,8 +187,8 @@ a5 = iskelet("SOWA · Menü (A5)", a5_css,
 
 # ---------- 3) A4 çift yüz, tek sütun ----------
 a4_1col_css = """
-  @page{size:A4;margin:16mm}
-  .page{height:265mm;overflow:hidden}
+  @page{size:A4;margin:18mm}
+  .page{height:261mm;overflow:hidden}
   .logo{width:96px;height:96px;background-size:570px auto;background-position:-138px -141px}
   .brand{font-size:27px;margin-top:10px}
   .tag{font-size:10px;margin-top:4px}

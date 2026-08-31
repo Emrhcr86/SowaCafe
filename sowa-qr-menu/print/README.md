@@ -24,6 +24,31 @@ python3 print/olustur.py   # HTML üretir
 > değişecekse ikisini tek JSON'dan besleyen bir yapıya geçmek gerekir; şu anki
 > güncelleme sıklığında bu iki dosyayı elde tutmak yeterli.
 
+## ⚖️ A4 iki sütunda sütun dengesi — dikkat
+
+Sağ sütunda beş varyant satırı var (Ice Tea, Milkshake, Frozen, iki tost), solda bir tane.
+Bu yüzden sol sütun doğal olarak kısa kalıyordu. Denge, **sol sütunun satır aralığı bir tık
+açılarak** kuruldu:
+
+```css
+.col-sol .item{padding:7.4px 0}   /* sağ sütun: 5.2px */
+```
+
+> **Menüye kalem eklenip çıkarıldığında bu denge bozulur.** PDF'e bakıp iki sütunun aynı hizada
+> bittiğini kontrol et; değilse `.col-sol .item` padding değerini büyüt/küçült (her 1px ≈ 32px
+> sütun boyu farkı).
+
+## 📐 Sayfa marjları
+
+| Format | Marj | Neden |
+| --- | --- | --- |
+| A4 iki sütun | 15mm | Fiyatların sağda nefes payı |
+| A5 | 12mm | 9mm'de fiyatlar kenara dayanıyordu; matbaada kesim riski de var |
+| A4 tek sütun | 18mm | Ferah düzen |
+
+`.page` yüksekliği marjla **birlikte** ayarlanmalı: `yükseklik = kağıt − 2×marj − pay`.
+Marjı büyütüp yüksekliği küçültmezsen sayfa taşar (A4 iki sütun bir kez böyle 2 sayfaya çıktı).
+
 ## Teknik notlar
 
 - **Logo PDF'e gömülü** (base64 data URI) — dosyalar tek başına taşınabilir, matbaaya
