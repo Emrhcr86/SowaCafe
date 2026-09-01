@@ -52,6 +52,16 @@ MENU = [
    ("Karışık Tost","Combination Toast","₺140","Sucuk, Kaşar"),
    ("Sowa Tost","Special Sowa Toast","₺150","Özel Sowa Sosu, Sucuk, Kaşar"),
  ]),
+ ("PASTALAR", "Cakes", [
+   ("Devil's","Devil's Cake","₺200",None),
+   ("Limonlu Cheesecake","Lemon Cheesecake","₺200",None),
+   ("Frambuazlı Cheesecake","Raspberry Cheesecake","₺200",None),
+ ]),
+ ("ÇEKİRDEK KAHVE", "Coffee Beans", [
+   ("Covim Çekirdek Kahve 1 kg","Covim Coffee Beans 1 kg","₺1300",None),
+   ("Covim Çekirdek Kahve 500 gr","Covim Coffee Beans 500 g","₺650",None),
+   ("Covim Filtre Kahve 250 gr","Covim Filter Coffee 250 g","₺350",None),
+ ]),
 ]
 
 IG = "@sowacafesoke"
@@ -72,7 +82,7 @@ def kalem(tr, en, fiyat, var):
 def bolum(tr, en, kalemler):
     items = "".join(kalem(*k) for k in kalemler)
     return (f'<section class="cat"><div class="cat-head">'
-            f'<span class="cat-tr">{tr}</span><span class="cat-en">{en}</span></div>'
+            f'<span class="cat-tr">{tr}</span><span class="cat-en" lang="en">{en}</span></div>'
             f'{items}</section>')
 
 
@@ -132,28 +142,30 @@ def iskelet(baslik, sayfa_css, govde):
 # ---------- 1) A4 tek yüz, 2 sütun ----------
 a4_2col_css = """
   @page{size:A4;margin:15mm}
-  .page{min-height:255mm}
-  .logo{width:74px;height:74px;background-size:439px auto;background-position:-107px -108px}
-  .brand{font-size:23px;margin-top:8px}
-  .tag{font-size:8.5px;margin-top:3px}
-  .cols{display:flex;gap:11mm;margin-top:9mm}
+  .page{min-height:250mm}
+  .logo{width:62px;height:62px;background-size:368px auto;background-position:-90px -91px}
+  .brand{font-size:20px;margin-top:6px}
+  .tag{font-size:8px;margin-top:2px}
+  .cols{display:flex;gap:10mm;margin-top:6mm}
   .col{flex:1;min-width:0}
-  .cat{margin-top:7mm}
+  .cat{margin-top:5mm}
   .col > .cat:first-child{margin-top:0}
-  .cat-tr{font-size:11.5px}
-  .cat-en{font-size:7.5px}
-  .item{padding:5.2px 0}
-  .col-sol .item{padding:7.4px 0}
-  .item .tr{font-size:10px}
-  .item .en{font-size:7.4px}
-  .item .var{font-size:7px;margin-top:1px}
-  .item .price{font-size:10px}
-  .foot{margin-top:auto;padding-top:9px}
-  .ig{font-size:9.5px}
-  .info{font-size:8px;line-height:1.9;margin-top:5px}
+  .cat-tr{font-size:10.5px}
+  .cat-en{font-size:7px}
+  .item{padding:3.7px 0}
+  .col-sol .item{padding:5.2px 0}
+  .item .tr{font-size:9.4px;line-height:1.2}
+  .item .en{font-size:7px;line-height:1.15}
+  .item .var{font-size:6.6px;line-height:1.15;margin-top:.5px}
+  .item .price{font-size:9.4px}
+  .foot{margin-top:auto;padding-top:7px}
+  .ig{font-size:9px}
+  .info{font-size:7.6px;line-height:1.75;margin-top:4px}
 """
-sol = bolum(*MENU[0]) + bolum(*MENU[1])
-sag = bolum(*MENU[2]) + bolum(*MENU[3])
+# Dağılım: sol/1. sayfa = kahve + çaylar + çekirdek | sağ/2. sayfa = soğuk + yiyecek + pasta
+GRUP_A = bolum(*MENU[0]) + bolum(*MENU[1]) + bolum(*MENU[5])
+GRUP_B = bolum(*MENU[2]) + bolum(*MENU[3]) + bolum(*MENU[4])
+sol, sag = GRUP_A, GRUP_B
 a4_2col = iskelet("SOWA · Menü (A4)", a4_2col_css,
     f'<div class="page">{basisim("a4")}'
     f'<div class="cols"><div class="col col-sol">{sol}</div><div class="col">{sag}</div></div>'
@@ -163,52 +175,52 @@ a4_2col = iskelet("SOWA · Menü (A4)", a4_2col_css,
 a5_css = """
   @page{size:A5;margin:12mm}
   .page{height:186mm;overflow:hidden}
-  .logo{width:56px;height:56px;background-size:332px auto;background-position:-81px -82px}
-  .brand{font-size:18px;margin-top:5px}
-  .tag{font-size:7.2px;margin-top:2px}
-  .cat{margin-top:5mm}
-  .cat-tr{font-size:9.6px}
-  .cat-en{font-size:6.9px}
-  .item{padding:2.9px 0}
-  .item .tr{font-size:9.1px;line-height:1.25}
-  .item .en{font-size:6.9px;line-height:1.2}
-  .item .var{font-size:6.5px;line-height:1.2;margin-top:.5px}
-  .item .price{font-size:9.1px}
-  .foot{margin-top:5mm;padding-top:7px}
-  .ig{font-size:8.4px}
-  .info{font-size:6.9px;line-height:1.8;margin-top:4px}
+  .logo{width:48px;height:48px;background-size:285px auto;background-position:-69px -70px}
+  .brand{font-size:16px;margin-top:4px}
+  .tag{font-size:6.8px;margin-top:2px}
+  .cat{margin-top:3.4mm}
+  .cat-tr{font-size:9px}
+  .cat-en{font-size:6.5px}
+  .item{padding:1.9px 0}
+  .item .tr{font-size:8.6px;line-height:1.15}
+  .item .en{font-size:6.5px;line-height:1.1}
+  .item .var{font-size:6.1px;line-height:1.1;margin-top:.3px}
+  .item .price{font-size:8.6px}
+  .foot{margin-top:3mm;padding-top:5px}
+  .ig{font-size:8px}
+  .info{font-size:6.6px;line-height:1.7;margin-top:3px}
   .sayfa2-bas{text-align:center;letter-spacing:.22em;font-size:13px;font-weight:500;
               margin-bottom:3mm}
 """
 a5 = iskelet("SOWA · Menü (A5)", a5_css,
-    f'<div class="page">{basisim("a5")}{bolum(*MENU[0])}{bolum(*MENU[1])}</div>'
+    f'<div class="page">{basisim("a5")}{GRUP_A}</div>'
     f'<div class="page"><div class="sayfa2-bas">SOWA</div>'
-    f'{bolum(*MENU[2])}{bolum(*MENU[3])}{altbilgi()}</div>')
+    f'{GRUP_B}{altbilgi()}</div>')
 
 # ---------- 3) A4 çift yüz, tek sütun ----------
 a4_1col_css = """
   @page{size:A4;margin:18mm}
   .page{height:261mm;overflow:hidden}
-  .logo{width:96px;height:96px;background-size:570px auto;background-position:-138px -141px}
-  .brand{font-size:27px;margin-top:10px}
-  .tag{font-size:10px;margin-top:4px}
-  .cat{margin-top:8mm}
-  .cat-tr{font-size:14px}
-  .cat-en{font-size:9.5px}
-  .item{padding:5.6px 0}
-  .item .tr{font-size:12.5px;line-height:1.3}
-  .item .en{font-size:9.2px;line-height:1.25}
-  .item .var{font-size:8.8px;line-height:1.25;margin-top:1px}
-  .item .price{font-size:12.5px}
-  .foot{margin-top:11mm;padding-top:12px}
-  .ig{font-size:11.5px}
-  .info{font-size:9.5px;line-height:2;margin-top:6px}
+  .logo{width:78px;height:78px;background-size:463px auto;background-position:-113px -114px}
+  .brand{font-size:23px;margin-top:8px}
+  .tag{font-size:9px;margin-top:3px}
+  .cat{margin-top:5mm}
+  .cat-tr{font-size:12.5px}
+  .cat-en{font-size:8.6px}
+  .item{padding:3.8px 0}
+  .item .tr{font-size:11.4px;line-height:1.18}
+  .item .en{font-size:8.4px;line-height:1.14}
+  .item .var{font-size:8px;line-height:1.14;margin-top:.5px}
+  .item .price{font-size:11.4px}
+  .foot{margin-top:6mm;padding-top:9px}
+  .ig{font-size:10.5px}
+  .info{font-size:8.8px;line-height:1.85;margin-top:5px}
   .sayfa2-bas{text-align:center;letter-spacing:.22em;font-size:19px;font-weight:500}
 """
 a4_1col = iskelet("SOWA · Menü (A4 tek sütun)", a4_1col_css,
-    f'<div class="page">{basisim("a4")}{bolum(*MENU[0])}{bolum(*MENU[1])}</div>'
+    f'<div class="page">{basisim("a4")}{GRUP_A}</div>'
     f'<div class="page"><div class="sayfa2-bas">SOWA</div>'
-    f'{bolum(*MENU[2])}{bolum(*MENU[3])}{altbilgi()}</div>')
+    f'{GRUP_B}{altbilgi()}</div>')
 
 for ad, icerik in [("menu-a4-2sutun.html", a4_2col),
                    ("menu-a5-cift-tarafli.html", a5),
